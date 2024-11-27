@@ -6,16 +6,22 @@
   <title>Visitor Pass Generator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
     .visitor-pass {
+      max-width: 100%;
       width: 400px;
       border: 2px solid #ccc;
       padding: 15px;
       margin: 20px auto;
       border-radius: 10px;
-      font-family: Arial, sans-serif;
-      background-color: #f8f9fa;
+      background-color: #ffffff;
       position: relative;
     }
+
     .visitor-pass-header {
       display: flex;
       justify-content: space-between;
@@ -24,51 +30,91 @@
       padding-bottom: 10px;
       margin-bottom: 10px;
     }
+
     .visitor-pass-header img {
-      max-width: 80px;
+      max-width: 70px;
     }
+
     .visitor-pass-content {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      flex-direction: column;
       gap: 15px;
     }
+
     .visitor-details {
-      flex: 2;
+      flex: 1;
     }
+
     .visitor-photo {
       flex: 1;
       text-align: center;
     }
+
     .visitor-photo img {
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       object-fit: cover;
       border: 2px solid #ccc;
       border-radius: 5px;
     }
+
     .powered-by {
       text-align: center;
       font-size: 0.8em;
       color: #777;
       margin-top: 10px;
     }
+
     .form-section {
       margin-bottom: 20px;
     }
+
     .form-section input {
       margin-bottom: 10px;
     }
+
     .btn-group {
       display: flex;
+      flex-wrap: wrap;
       gap: 10px;
+    }
+
+    @media (min-width: 768px) {
+      .visitor-pass-content {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .visitor-photo img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .visitor-pass {
+        width: 400px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .visitor-pass {
+        padding: 10px;
+      }
+
+      .visitor-pass-header img {
+        max-width: 50px;
+      }
+
+      .visitor-photo img {
+        width: 60px;
+        height: 60px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container card mt-3">
+  <div class="container card mt-3 p-3">
     <div class="form-section">
-      <h4>Fill Visitor Details</h4>
+      <h4 class="text-center">Adithya Visitor Details</h4>
       <form id="visitorForm">
         <div class="mb-3">
           <label for="visitorNameInput" class="form-label">Name</label>
@@ -97,29 +143,28 @@
       </form>
     </div>
   </div>
-    <div id="visitorPass" class="visitor-pass">
-      <div class="visitor-pass-header">
-        <img src="img/ad.jpg" alt="Olympia Logo">
-        <p><strong>ID:</strong> <span id="visitorID">-</span></p>
-        <h5>VISITOR</h5>
+  <div id="visitorPass" class="visitor-pass">
+    <div class="visitor-pass-header">
+      <img src="img/ad.jpg" alt="Adithya Logo">
+      <p><strong>ID:</strong> <span id="visitorID">-</span></p>
+      <h5>VISITOR</h5>
+    </div>
+    <div class="visitor-pass-content">
+      <div class="visitor-details">
+        <p><strong>Name:</strong> <span id="visitorName">-</span></p>
+        <p><strong>Coming From:</strong> Aditya pvt ltd.</p>
+        <p><strong>Organization:</strong> Aditya pvt ltd.</p>
+        <p><strong>Building:</strong> Ground Floor</p>
+        <p><strong>To Meet:</strong> Admin</p>
+        <p><strong>Date:</strong> <span id="visitDate">-</span></p>
+        <p><strong>Time:</strong> <span id="visitTime">-</span></p>
       </div>
-      <div class="visitor-pass-content">
-        <div class="visitor-details">
-          <p><strong>Name:</strong> <span id="visitorName">-</span></p>
-          <p><strong>Coming From:</strong> Aditya pvt ltd.</p>
-          <p><strong>Organization:</strong> Aditya pvt ltd.</p>
-          <p><strong>Building:</strong> Ground Floor</p>
-          <p><strong>To Meet:</strong> Admin</p>
-          <p><strong>Date:</strong> <span id="visitDate">-</span></p>
-          <p><strong>Time:</strong> <span id="visitTime">-</span></p>
-        </div>
-        <div class="visitor-photo">
-          <img id="visitorPhoto" src="default-photo.jpg" alt="Visitor Photo">
-        </div>
+      <div class="visitor-photo">
+        <img id="visitorPhoto" src="default-photo.jpg" alt="Visitor Photo">
       </div>
-      <div class="powered-by">
-        Powered by Adithya IT Solutions.
-      </div>
+    </div>
+    <div class="powered-by">
+      Powered by Adithya IT Solutions.
     </div>
   </div>
 
